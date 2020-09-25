@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prime Num</title>
+</head>
+<body>
+<h3>All the prime numbers smaller than 10000</h3>
+<!--<h4>Chương trình này có thể hiển thị các số nguyên tố đến tận 1 tỉ</h4>-->
+<button onclick="isPrime(100000000)"> In</button>
+<p id="result"></p>
+<script>
+    function isPrime(n) {
+        let arr = [];
+        for (let i = 2; i < n; i++) {
+            arr[i] = true;
+        }
+
+        for (let i = 2; i <= n; i++) {
+             if (arr[i] === true) {
+                for (let j = 2*i; j <=n; j+= i) {
+                    arr[j] = false;
+                }
+            }
+        }
+
+        for (let i = 2; i <= n; i++) {
+            if (arr[i] === true) {
+            document.write(i + ', ');
+            }
+        }
+    }
+
+</script>
+</body>
+</html>
